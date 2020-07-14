@@ -1,11 +1,12 @@
 import time
+import datetime
 import sqlite3
 from sense_hat import SenseHat
 import requests
 import json
 import os
 dbname='sensehat.db'
-sampleFreq = 1 # time in seconds
+sampleFreq = 60 # time in seconds
 
 ACCESS_TOKEN="o.6R644v50MdAV0UYCGevjg3dmT8ALos9z"
 
@@ -73,13 +74,26 @@ def send_notification_via_pushbullet(title, body):
 # main function
 def main():
     notify_msg_count = 0
+    time_order = []
     for i in range (0,3):
+    # while True:
         bad_temp_var, bad_humid_var = getSenseHatData()
-        print(bad_temp_var, bad_humid_var)
-        time.sleep(sampleFreq)
+        # print(bad_temp_var, bad_humid_var)
+        print('Bad temp: {}, bad humid: {}'.format(bad_temp_var,bad_humid_var))
+        ip_address = os.popen('hostname -I').read()
+        if(bad_temp_var==True or bad_humid_var==True):
+            if(notify_msg_count==0):
+                send_notification_via_pushbullet(ip_address, "Temperature or Humidity is out of comfortable range")
+                sentTime = datetime.datetime.now()
+                notify_msg_count+=1
+                time_order.append(sentTime)
+            elif(notify_msg_count > 0 and ((datetime.datetime.now() - time_order[len(time_order)-1]).total_seconds())>=90): #check if time difference btw last notif msg and current msg has been at least 24 hrs
+                send_notification_via_pushbullet(ip_address, "Temperature or Humidity is out of comfortable range")
+                sentTime = datetime.datetime.now()
+                notify_msg_count+=1
+                time_order.append(sentTime)
+        time.sleep(sampleFreq) #log sensor datas after every min
     displayData()
-    ip_address = os.popen('hostname -I').read()
-    send_notification_via_pushbullet(ip_address, "From Raspberry Pi")
 
 # Execute program 
 main()
