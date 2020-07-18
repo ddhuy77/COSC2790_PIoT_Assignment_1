@@ -49,4 +49,3 @@ while True:
     #sleep(59)
     sense.clear()
     sleep(1)
-    
