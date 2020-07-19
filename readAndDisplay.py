@@ -34,13 +34,16 @@ class tempIndicator02:
             print(latest_temp)
             conn.close()
             return latest_temp
-        new_temp=readNewestTemp()
+        new_temp=float(readNewestTemp())
         if new_temp is not None and (comfort_minTemp < new_temp < comfort_maxTemp): #comfortable
-            sense.clear(g)
+            # sense.clear(g)
+            sense.show_message(str(new_temp)+"C",text_colour=[0, 255, 0])
         elif new_temp is not None and new_temp < comfort_minTemp: #cold
-            sense.clear(b)
+            # sense.clear(b)
+            sense.show_message(str(new_temp)+"C",text_colour=[0, 0, 255])
         elif new_temp is not None and new_temp > comfort_maxTemp: #hot
-            sense.clear(r)
+            # sense.clear(r)
+            sense.show_message(str(new_temp)+"C",text_colour=[255, 0, 0])
 
 t1=tempIndicator02
 while True:

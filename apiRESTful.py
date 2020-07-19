@@ -11,14 +11,14 @@ ma = Marshmallow(app)
 api = Api(app)
 
 
-class Post(db.Model):
+class SENSEHAT_data(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     recorded_time = db.Column(db.String)
     temp = db.Column(db.String)
     humidity = db.Column(db.String)
 
-    def __repr__(self):
-        return '<Post %s>' % self.title
+    # def __repr__(self):
+    #     return '<Post %s>' % self.title
 
 
 class PostSchema(ma.Schema):
@@ -32,11 +32,11 @@ posts_schema = PostSchema(many=True)
 
 class PostListResource(Resource):
     def get(self):
-        posts = Post.query.all()
+        posts = SENSEHAT_data.query.all()
         return posts_schema.dump(posts)
 
     def post(self):
-        new_post = Post(
+        new_post = SENSEHAT_data(
             recorded_time=request.json['recorded_time'],
             temp=request.json['temp'],
             humidity=request.json['humidity']
@@ -48,11 +48,11 @@ class PostListResource(Resource):
 
 class PostResource(Resource):
     def get(self, post_id):
-        post = Post.query.get_or_404(post_id)
+        post = SENSEHAT_data.query.get_or_404(post_id)
         return post_schema.dump(post)
 
     def patch(self, post_id):
-        post = Post.query.get_or_404(post_id)
+        post = SENSEHAT_data.query.get_or_404(post_id)
 
         if 'recorded_time' in request.json:
             post.recorded_time = request.json['recorded_time']
@@ -65,7 +65,7 @@ class PostResource(Resource):
         return post_schema.dump(post)
 
     def delete(self, post_id):
-        post = Post.query.get_or_404(post_id)
+        post = SENSEHAT_data.query.get_or_404(post_id)
         db.session.delete(post)
         db.session.commit()
         return '', 204
