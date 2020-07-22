@@ -1,8 +1,8 @@
 {
     "cold_max": 10,
-    "comfortable_min_temp": 32,
-    "comfortable_max_temp": 33,
-    "comfortable_min_humid": 73,
-    "comfortable_max_humid": 74,
+    "comfortable_min_temp": 10,
+    "comfortable_max_temp": 25,
+    "comfortable_min_humid": 30,
+    "comfortable_max_humid": 60,
     "hot_min": 25
 }
