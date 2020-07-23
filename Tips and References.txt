@@ -1,0 +1,146 @@
+Sqlite python read sensor data and store it in sqlite db
+https://www.youtube.com/watch?v=_TVP3iHyoqQ
+
+try trinket emulator from trinket.io/sense-hat
+
+https://www.pushbullet.com/#settings/devices
+
+https://pythonhosted.org/sense-hat/api/#led-matrix
+https://pythonicpi.wordpress.com/2018/06/08/display-pictures-on-the-sense-hat/
+
+How to share Pi's folder with PC on windows
+https://pimylifeup.com/raspberry-pi-samba/<--follow this steps
+
+Python syntax tips
+https://realpython.com/run-python-scripts/#how-to-run-python-scripts-using-the-command-line
+https://stackoverflow.com/questions/2960772/how-do-i-put-a-variable-inside-a-string
+https://stackoverflow.com/questions/17153779/how-can-i-print-variable-and-string-on-same-line-in-python
+https://www.programiz.com/python-programming/writing-csv-files
+https://medium.com/@madhawacperera/lets-start-with-python-different-programming-styles-f13f516ce28f
+https://stackoverflow.com/questions/31487732/simple-way-to-drop-milliseconds-from-python-datetime-datetime-object
+https://stackoverflow.com/questions/20441035/unsupported-operand-types-for-int-and-str
+https://stackoverflow.com/questions/22397261/cant-convert-float-object-to-str-implicitly
+
+Sqlite tutorials
+https://pythonprogramming.net/sqlite-part-2-dynamically-inserting-database-timestamps/
+https://randomnerdtutorials.com/sqlite-database-on-a-raspberry-pi/
+https://pynative.com/python-cursor-fetchall-fetchmany-fetchone-to-read-rows-from-table/
+http://zetcode.com/db/sqlitepythontutorial/#:~:text=SQLite%20Python%20retrieve%20data&text=fetchall()%20method%20gets%20all,a%20row%20in%20the%20table.
+https://stackoverflow.com/questions/9902394/how-to-get-last-record-from-sqlite
+https://stackoverflow.com/questions/21521241/how-to-get-date-from-datetime-column-in-sql/21521377
+https://www.sqlitetutorial.net/sqlite-date/
+https://stackoverflow.com/questions/14949833/searching-sqlite-database-with-python-variables
+
+MySql for A2 hints
+https://pimylifeup.com/raspberry-pi-mysql/
+
+Crontab to schedule run py file automatically upon booting
+https://www.instructables.com/id/Raspberry-Pi-Launch-Python-script-on-startup/ (selected)
+https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/
+https://learn.sparkfun.com/tutorials/how-to-run-a-raspberry-pi-program-on-startup/method-1-rclocal
+
+How to send notification from pi to pushbullet notification board viewed from pc chrome app
+https://www.youtube.com/watch?v=2QL5k235258
+lecturer guide: View - 06_pycurlBullet.py in Week3 Code archive zip (PIoT_TL4_code.zip)
+
+Git tips: when you want to remove a branhc after created it, see below and do the delete locally method
+https://www.freecodecamp.org/news/how-to-delete-a-git-branch-both-locally-and-remotely/
+
+Calculate time difference (useful for scheduling your pi's notification sending after at least 24hrs)
+https://kite.com/python/answers/how-to-find-the-number-of-seconds-between-two-datetime-objects-in-python
+
+Install additional packages pip for python3.6
+$ sudo pip3.6 install python-dateutil
+from: https://bohdan-danishevsky.blogspot.com/2017/01/building-python-360-on-raspberry-pi-3.html
+
+How to install python3.6 on Pi
+http://www.knight-of-pi.org/installing-python3-6-on-a-raspberry-pi/
+
+Important guide to install additional packages or pip: https://projects.raspberrypi.org/en/projects/using-pip-on-raspberry-pi/4
+
+Checkout programiz for python oop design pattern explanations
+
+RESTful api tutorials (sqlite+python)
+https://medium.com/python-pandemonium/build-simple-restful-api-with-python-and-flask-part-2-724ebf04d12
+https://rahmanfadhil.com/flask-rest-api/ (selected)
+https://impythonist.wordpress.com/2015/07/12/build-an-api-under-30-lines-of-code-with-python-and-flask/
+
+Install python 3.8 on Pi
+https://installvirtual.com/how-to-install-python-3-8-on-raspberry-pi-raspbian/
+
+How to run your py script on virtualenv (very useful to install any pips without being limited by version of python)
+https://geektechstuff.com/2019/01/14/creating-a-virtual-python-environment-python/
+https://www.techcoil.com/blog/how-to-use-python-3-virtual-environments-to-run-python-3-applications-on-your-raspberry-pi/
+
+selected ways for virtual environment
+https://raspberry-valley.azurewebsites.net/Python-Development-Environment/ -->selected
+https://medium.com/@ronm333/virtual-environments-on-the-raspberry-pi-ead158a72cd5
+
+script for bash
+
+
+Steps to run apiRESTful.py
+1. Install Python 3.8 following this guidehttps://installvirtual.com/how-to-install-python-3-8-on-raspberry-pi-raspbian/
+Note: Remember to NOT Make Python 3.8 as the default version, skip this step
+2. Create virtual environment for Python3.8
+
+sudo pip3.8 install virtualenv
+sudo pip3.8 install virtualenvwrapper
+
+mkdir testing && cd testing
+
+sudo nano ~/.bashrc
+
+Add these lines at the bottom of bashhrc && source ~/.bashrc
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=./testing
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.8
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+source /usr/local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin
+
+Look up some commands to create, remove, deactivate a virtual env
+
+First time initiate a virtual env
+cd testing
+mkvirtualenv testing
+
+Why using virtual env? To freely test project and safely install packages for new Python3.8 inside virtual env without affecting the system file of default or other versions of python setup
+
+test curl cmds
+curl http://localhost:5000/posts
+curl http://localhost:5000/posts/1
+POST API URL
+curl http://localhost:5000/posts -X POST -H "Content-Type: application/json" -d '{"recorded_time":"2020-01-01 00:00:00", "temp":"10", "humidity":"10"}'
+PUT API URL
+curl http://localhost:5000/posts/1 -X PATCH -H "Content-Type: application/json" -d '{"recorded_time":"2020-01-01 00:00:00", "temp":"100", "humidity":"100"}'
+DELETE API URL
+curl http://localhost:5000/posts/2 -X DELETE -I
+
+Dice Game
+http://www.suppertime.co.uk/blogmywiki/2015/12/raspberrypi-dice-project/
+https://www.pythonforbeginners.com/code-snippets-source-code/game-rolling-the-dice
+https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/8
+
+Bluetooth guide
+http://www.python-exemplarisch.ch/index_en.php?inhalt_links=navigation_en.inc.php&inhalt_mitte=raspi/en/bluetooth.inc.php
+https://stackoverflow.com/questions/53794258/send-over-bluetooth-python-commands-to-another-raspberry-pi
+https://bluedot.readthedocs.io/en/latest/gettingstarted.html
+http://blog.kevindoran.co/bluetooth-programming-with-python-3/
+http://people.csail.mit.edu/albert/bluez-intro/x232.html#rfcomm-server.py
+https://www.instructables.com/id/Raspberry-Pi-Bluetooth-to-PuTTY-on-Windows-10/
+https://github.com/pybluez/pybluez/issues/180
+https://stackoverflow.com/questions/42612002/python-sockets-error-typeerror-a-bytes-like-object-is-required-not-str-with/42612820
+http://www.robertprice.co.uk/robblog/programming_bluetooth_using_python-shtml/
+
+The working way to send bluetooth message from laptop to pi:
+First, follow this setup: https://www.element14.com/community/docs/DOC-81266/l/setting-up-bluetooth-on-the-raspberry-pi-3
+Second, use the client and server code of pybluez from this source: http://blog.kevindoran.co/bluetooth-programming-with-python-3/
+Running all script after the two devices are paired, start typing message from the terminal that runs client code (your laptop), msg will be read from terminal of Pi
+Change port on both code to 4 in case of socket error on window
+
+how to install pybluez
+https://stackoverflow.com/questions/23985163/python3-error-no-module-named-bluetooth-on-linux-mint (selected)
+
+alternative for cronjob
+https://stackoverflow.com/questions/15088037/python-script-to-do-something-at-the-same-time-every-day (use the schedule module, not used yet, tend to use as substitute to cronjob)
