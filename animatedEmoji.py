@@ -1,64 +1,24 @@
 from sense_hat import SenseHat
 from time import sleep
+from emojis.smile import Smile
+from emojis.frown import Frown
+from emojis.neutral import Neutral
 
-class Emoji:
-   def __init__(self, y, b, r):
-      self.y = y
-      self.b = b
-      self.r = r
-   def animateEmoji(self):
-      sense = SenseHat()
-      y = self.y
-      b = self.b
-      r = self.r
-      smile = [
-         y, y, y, y, y, y, y, y,
-         y, y, r, y, y, r, y, y,
-         y, y, r, y, y, r, y, y,
-         y, y, r, y, y, r, y, y,
-         y, y, y, y, y, y, y, y,
-         y, b, y, y, y, y, b, y,
-         y, b, b, b, b, b, b, y,
-         y, y, y, y, y, y, y, y
-      ]
-      frown = [
-         y, y, y, y, y, y, y, y,
-         y, y, r, y, y, r, y, y,
-         y, y, r, y, y, r, y, y,
-         y, y, r, y, y, r, y, y,
-         y, y, y, y, y, y, y, y,
-         y, b, b, b, b, b, b, y,
-         y, b, y, y, y, y, b, y,
-         y, y, y, y, y, y, y, y
-      ]
-      surprised = [
-         y, r, r, y, y, r, r, y,
-         y, r, r, y, y, r, r, y,
-         y, r, r, y, y, r, r, y,
-         y, y, y, y, y, y, y, y,
-         y, y, b, b, b, b, y, y,
-         y, y, b, y, y, b, y, y,
-         y, y, b, y, y, b, y, y,
-         y, y, b, b, b, b, y, y
-      ]
-      while True:
-         sense.set_pixels(smile)
-         sleep(3)
-         sense.set_pixels(frown)
-         sleep(3)
-         sense.set_pixels(surprised)
-         sleep(3)
+class AnimatedEmoji:
+    def animatedEmoji():
+        red = (255, 0, 0)
+        yellow = (255, 255, 0)
+        green = (0, 255, 0)
 
-y = (255, 255, 0) # Yellow
-b = (0, 0, 255) # Blue
-r = (255, 0, 0) # Red
+        emojis = [
+            Smile(green),
+            Neutral(yellow),
+            Frown(red)
+        ]
 
-e1 = Emoji(y, b, r)
-e1.animateEmoji()
+    while True:
+        for emoji in emojis:
+            sense.set_pixels(emoji.face())
+            sleep(3)
 
-
-
-
-
-
-
+AnimatedEmoji.animatedEmoji()
