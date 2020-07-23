@@ -3,99 +3,89 @@ import time
 import random
 
 class electronicDie:
+
     def dieRoller():
         sense = SenseHat()
 
         sense.clear()
 
-        # sense.show_message("Shake to roll!")
-
-        b = [0, 0, 0]
-        g = [0, 255, 0]
         r = [255, 0, 0]
+        b = [0, 0, 255]
+        n = [0, 0, 0]
 
         one = [
-        b,b,b,b,b,b,b,b,
-        b,b,b,b,b,b,b,b,
-        b,b,b,b,b,b,b,b,
-        b,b,b,g,g,b,b,b,
-        b,b,b,g,g,b,b,b,
-        b,b,b,b,b,b,b,b,
-        b,b,b,b,b,b,b,b,
-        b,b,b,b,b,b,b,b,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,r,r,n,n,n,
+        n,n,n,r,r,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n
         ]
 
         two = [
-        b,b,b,b,b,b,b,b,
-        b,g,g,b,b,b,b,b,
-        b,g,g,b,b,b,b,b,
-        b,b,b,b,b,b,b,b,
-        b,b,b,b,b,b,b,b,
-        b,b,b,b,g,g,b,b,
-        b,b,b,b,g,g,b,b,
-        b,b,b,b,b,b,b,b,
+        b,b,n,n,n,n,n,n,
+        b,b,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,b,b,
+        n,n,n,n,n,n,b,b
         ]
 
         three = [
-        g,g,b,b,b,b,b,b,
-        g,g,b,b,b,b,b,b,
-        b,b,b,b,b,b,b,b,
-        b,b,b,g,g,b,b,b,
-        b,b,b,g,g,b,b,b,
-        b,b,b,b,b,b,b,b,
-        b,b,b,b,b,b,g,g,
-        b,b,b,b,b,b,g,g,
+        b,b,n,n,n,n,n,n,
+        b,b,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,b,b,n,n,n,
+        n,n,n,b,b,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,b,b,
+        n,n,n,n,n,n,b,b
         ]
 
         four = [
-        b,b,b,b,b,b,b,b,
-        b,g,g,b,b,g,g,b,
-        b,g,g,b,b,g,g,b,
-        b,b,b,b,b,b,b,b,
-        b,b,b,b,b,b,b,b,
-        b,g,g,b,b,g,g,b,
-        b,g,g,b,b,g,g,b,
-        b,b,b,b,b,b,b,b,
+        b,b,n,n,n,n,b,b,
+        b,b,n,n,n,n,b,b,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        b,b,n,n,n,n,b,b,
+        b,b,n,n,n,n,b,b
         ]
 
         five = [
-        g,g,b,b,b,b,g,g,
-        g,g,b,b,b,b,g,g,
-        b,b,b,b,b,b,b,b,
-        b,b,b,g,g,b,b,b,
-        b,b,b,g,g,b,b,b,
-        b,b,b,b,b,b,b,b,
-        g,g,b,b,b,b,g,g,
-        g,g,b,b,b,b,g,g,
+        b,b,n,n,n,n,b,b,
+        b,b,n,n,n,n,b,b,
+        n,n,n,n,n,n,n,n,
+        n,n,n,b,b,n,n,n,
+        n,n,n,b,b,n,n,n,
+        n,n,n,n,n,n,n,n,
+        b,b,n,n,n,n,b,b,
+        b,b,n,n,n,n,b,b
         ]
 
         six = [
-        r,r,b,b,b,b,r,r,
-        r,r,b,b,b,b,r,r,
-        b,b,b,b,b,b,b,b,
-        r,r,b,b,b,b,r,r,
-        r,r,b,b,b,b,r,r,
-        b,b,b,b,b,b,b,b,
-        r,r,b,b,b,b,r,r,
-        r,r,b,b,b,b,r,r,
+        b,b,n,n,n,n,b,b,
+        b,b,n,n,n,n,b,b,
+        n,n,n,n,n,n,n,n,
+        b,b,n,n,n,n,b,b,
+        b,b,n,n,n,n,b,b,
+        n,n,n,n,n,n,n,n,
+        b,b,n,n,n,n,b,b,
+        b,b,n,n,n,n,b,b
         ]
+
+        die = [one,two,three,four,five,six]
 
         score=0
 
-        def roll_dice():
+        def roll():
             r = random.randint(1,6)
-            if r == 1:
-                sense.set_pixels(one)
-            elif r == 2:
-                sense.set_pixels(two)
-            elif r == 3:
-                sense.set_pixels(three)
-            elif r == 4:
-                sense.set_pixels(four)
-            elif r == 5:
-                sense.set_pixels(five)
-            elif r == 6:
-                sense.set_pixels(six)
+            sense.set_pixels(die[r-1])
             return r
         
         while score==0:
@@ -106,10 +96,5 @@ class electronicDie:
             z = abs(z)
 
             if x > 1.4 or y > 1.4 or z > 1.4:
-                score=roll_dice()
-                #time.sleep(1)
+                score=roll()
         return score
-
-# e1=electronicDie
-# x=e1.dieRoller()
-# print(x)
