@@ -48,7 +48,6 @@ class tempIndicator02:
 t1=tempIndicator02
 while True:
     t1.tempIndicator()
-    sleep(5)
-    #sleep(59)
+    sleep(59)
     sense.clear()
     sleep(1)

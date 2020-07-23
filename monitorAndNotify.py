@@ -178,6 +178,7 @@ class sensorIndicator:
                         bad_temp_arr.append(float_temp)
                     highest_bad_temp = max(bad_temp_arr)
                     lowest_bad_temp = min(bad_temp_arr)
+                    print(bad_temp_arr)
                     print(highest_bad_temp)
                     print(lowest_bad_temp)
                     if highest_bad_temp==lowest_bad_temp and highest_bad_temp!=None and lowest_bad_temp!=None:
@@ -199,6 +200,7 @@ class sensorIndicator:
                         bad_humid_arr.append(float_humid)
                     highest_bad_humid = max(bad_humid_arr)
                     lowest_bad_humid = min(bad_humid_arr)
+                    print(bad_humid_arr)
                     print(highest_bad_humid)
                     print(lowest_bad_humid)
                     if highest_bad_humid==lowest_bad_humid and highest_bad_humid!=None and lowest_bad_humid!=None:
@@ -248,8 +250,9 @@ class sensorIndicator:
                     elif lowest_bad_humid==None:
                         send_notification_via_pushbullet(ip_address, "Today's humid is above comfortable range and temp is fine. Recorded: {}%".format(highest_bad_humid))
                     else: send_notification_via_pushbullet(ip_address, "Today's humid is out of comfortable range and temp is fine. Recorded: Bad Highest Humid {}%, Bad Lowest Humid {}%".format(highest_bad_humid, lowest_bad_humid))
+                displayData()
             time.sleep(sampleFreq) #log sensor datas after every min
-        displayData()
+        
 # Execute program
 s1 = sensorIndicator
 s1.main()
