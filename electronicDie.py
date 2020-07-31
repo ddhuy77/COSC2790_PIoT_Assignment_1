@@ -9,15 +9,16 @@ class electronicDie:
 
         sense.clear()
 
-        b = [0, 0, 0]
+        r = [255, 0, 0]
+        b = [0, 0, 255]
         w = [255,255,255]
 
         one = [
         w,w,w,w,w,w,w,w,
         w,w,w,w,w,w,w,w,
         w,w,w,w,w,w,w,w,
-        w,w,w,b,b,w,w,w,
-        w,w,w,b,b,w,w,w,
+        w,w,w,r,r,w,w,w,
+        w,w,w,r,r,w,w,w,
         w,w,w,w,w,w,w,w,
         w,w,w,w,w,w,w,w,
         w,w,w,w,w,w,w,w
@@ -82,7 +83,7 @@ class electronicDie:
 
         score=0
 
-        def roll_dice():
+        def roll():
             r = random.randint(1,6)
             sense.set_pixels(die[r-1])
             return r
@@ -95,5 +96,5 @@ class electronicDie:
             z = abs(z)
 
             if x > 1.4 or y > 1.4 or z > 1.4:
-                score=roll_dice()
+                score=roll()
         return score
