@@ -11,72 +11,72 @@ class electronicDie:
 
         r = [255, 0, 0]
         b = [0, 0, 255]
-        w = [255,255,255]
+        n = [0, 0, 0]
 
         one = [
-        w,w,w,w,w,w,w,w,
-        w,w,w,w,w,w,w,w,
-        w,w,w,w,w,w,w,w,
-        w,w,w,r,r,w,w,w,
-        w,w,w,r,r,w,w,w,
-        w,w,w,w,w,w,w,w,
-        w,w,w,w,w,w,w,w,
-        w,w,w,w,w,w,w,w
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,r,r,n,n,n,
+        n,n,n,r,r,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n
         ]
 
         two = [
-        b,b,w,w,w,w,w,w,
-        b,b,w,w,w,w,w,w,
-        w,w,w,w,w,w,w,w,
-        w,w,w,w,w,w,w,w,
-        w,w,w,w,w,w,w,w,
-        w,w,w,w,w,w,w,w,
-        w,w,w,w,w,w,b,b,
-        w,w,w,w,w,w,b,b
+        b,b,n,n,n,n,n,n,
+        b,b,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,b,b,
+        n,n,n,n,n,n,b,b
         ]
 
         three = [
-        b,b,w,w,w,w,w,w,
-        b,b,w,w,w,w,w,w,
-        w,w,w,w,w,w,w,w,
-        w,w,w,b,b,w,w,w,
-        w,w,w,b,b,w,w,w,
-        w,w,w,w,w,w,w,w,
-        w,w,w,w,w,w,b,b,
-        w,w,w,w,w,w,b,b
+        b,b,n,n,n,n,n,n,
+        b,b,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,b,b,n,n,n,
+        n,n,n,b,b,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,b,b,
+        n,n,n,n,n,n,b,b
         ]
 
         four = [
-        b,b,w,w,w,w,b,b,
-        b,b,w,w,w,w,b,b,
-        w,w,w,w,w,w,w,w,
-        w,w,w,w,w,w,w,w,
-        w,w,w,w,w,w,w,w,
-        w,w,w,w,w,w,w,w,
-        b,b,w,w,w,w,b,b,
-        b,b,w,w,w,w,b,b,
+        b,b,n,n,n,n,b,b,
+        b,b,n,n,n,n,b,b,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        n,n,n,n,n,n,n,n,
+        b,b,n,n,n,n,b,b,
+        b,b,n,n,n,n,b,b
         ]
 
         five = [
-        b,b,w,w,w,w,b,b,
-        b,b,w,w,w,w,b,b,
-        w,w,w,w,w,w,w,w,
-        w,w,w,b,b,w,w,w,
-        w,w,w,b,b,w,w,w,
-        w,w,w,w,w,w,w,w,
-        b,b,w,w,w,w,b,b,
-        b,b,w,w,w,w,b,b,
+        b,b,n,n,n,n,b,b,
+        b,b,n,n,n,n,b,b,
+        n,n,n,n,n,n,n,n,
+        n,n,n,b,b,n,n,n,
+        n,n,n,b,b,n,n,n,
+        n,n,n,n,n,n,n,n,
+        b,b,n,n,n,n,b,b,
+        b,b,n,n,n,n,b,b
         ]
 
         six = [
-        b,b,w,w,w,w,b,b,
-        b,b,w,w,w,w,b,b,
-        w,w,w,w,w,w,w,w,
-        b,b,w,w,w,w,b,b,
-        b,b,w,w,w,w,b,b,
-        w,w,w,w,w,w,w,w,
-        b,b,w,w,w,w,b,b,
-        b,b,w,w,w,w,b,b,
+        b,b,n,n,n,n,b,b,
+        b,b,n,n,n,n,b,b,
+        n,n,n,n,n,n,n,n,
+        b,b,n,n,n,n,b,b,
+        b,b,n,n,n,n,b,b,
+        n,n,n,n,n,n,n,n,
+        b,b,n,n,n,n,b,b,
+        b,b,n,n,n,n,b,b
         ]
 
         die = [one,two,three,four,five,six]
