@@ -5,7 +5,7 @@ class Neutral(Emoji):
         super().__innit__(color)
 
     def face(self):
-        c = self.color
+        c = self.getColor()
         b = (0, 0, 0)
         faceArr = [
             c, c, c, c, c, c, c, c,
