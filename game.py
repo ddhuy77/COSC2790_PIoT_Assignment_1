@@ -30,28 +30,36 @@ class diceGame:
             if turn==1:
                 while score_1 < 30 and score_2 < 30:
                     print("Player 1, please shake the Pi")
-                    score_1+=e1.dieRoller()
+                    roll_1=e1.dieRoller()
+                    score_1+=roll_1
                     if score_1 > 0:
+                        print("player 1 has rolled %d" % roll_1)
                         print("Player 1 has scored %d" % score_1)
                         time_1+=1
                     time.sleep(1)
                     print("Player 2, please shake the Pi")
-                    score_2+=e1.dieRoller()
+                    roll_2=e1.dieRoller()
+                    score_2+=roll_2
                     if score_2 > 0:
+                        print("player 2 has rolled %d" % roll_2)
                         print("Player 2 has scored %d" % score_2)
                         time_2+=1
                     time.sleep(1)
             if turn==2:
                 while score_1 < 30 and score_2 < 30:
                     print("Player 2, please shake the Pi")
-                    score_2+=e1.dieRoller()
+                    roll_2=e1.dieRoller()
+                    score_2+=roll_2
                     if score_2 > 0:
+                        print("player 2 has rolled %d" % roll_2)
                         print("Player 2 has scored %d" % score_2)
                         time_2+=1
                     time.sleep(1)
                     print("Player 1, please shake the Pi")
-                    score_1+=e1.dieRoller()
+                    roll_1=e1.dieRoller()
+                    score_1+=roll_1
                     if score_1 > 0:
+                        print("player 1 has rolled %d" % roll_1)
                         print("Player 1 has scored %d" % score_1)
                         time_1+=1
                     time.sleep(1)
