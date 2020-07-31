@@ -1,7 +1,7 @@
 from emojis.emoji import Emoji
 
 class Frown(Emoji):
-    def __innit__(self, color)
+    def __innit__(self, color):
         super().__innit__(color)
 
     def face(self):
