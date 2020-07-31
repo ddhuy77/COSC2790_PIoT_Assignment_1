@@ -13,6 +13,7 @@ class AnimatedEmoji:
 
     def aEmoji(self):
         sense = SenseHat()
+        sense.clear()
 
         color1 = self.__color1
         color2 = self.__color2
