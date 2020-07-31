@@ -75,12 +75,12 @@ class diceGame:
                 winner_score=score_2
                 winner_time=time_2
             prompt_1 = input("Play again? (y/n)")
-            row_list = [["Time (Number of Try)", "Winner", "Score"],
-                    [winner_time, winner, winner_score]]
-            with open('winner.csv', 'w', newline='') as file:
-                writer = csv.writer(file)
-                writer.writerows(row_list)
         sense.clear()
+        row_list = [["Time (Number of Try)", "Winner", "Score"],
+                    [winner_time, winner, winner_score]]
+        with open('winner.csv', 'w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerows(row_list)
 
 d = diceGame
 d.game()
